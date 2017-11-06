@@ -29,10 +29,9 @@ SRCS_CXX = \
 	teensy3/HardwareSerial1.cpp \
 	teensy3/HardwareSerial2.cpp \
 	teensy3/HardwareSerial3.cpp \
-	teensy3/usb_inst.cpp
-
-CANMGR_DIR := $(shell pwd)/../libcanmgr
-VPATH = $(CANMGR_DIR)
+	teensy3/usb_inst.cpp \
+	AccelStepper/AccelStepper.cpp \
+	stepper.cpp
 
 # configurable options
 OPTIONS = -DF_CPU=48000000 -DLAYOUT_US_ENGLISH -DUSING_MAKEFILE
@@ -48,7 +47,7 @@ OPTIONS += -D__$(MCU)__ -DARDUINO=10600 -DTEENSYDUINO=121
 
 # CPPFLAGS = compiler options for C and C++
 CPPFLAGS = -Wall -g -Os -mcpu=cortex-m4 -mthumb -MMD $(OPTIONS)
-CPPFLAGS += -Iteensy3 -IFlexCAN -IEntropy -I$(CANMGR_DIR)
+CPPFLAGS += -Iteensy3 -IAccelStepper
 
 # compiler options for C++ only
 CXXFLAGS = -std=gnu++0x -felide-constructors -fno-exceptions -fno-rtti
