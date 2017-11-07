@@ -22,7 +22,8 @@ SRCS_C = \
 	teensy3/usb_mem.c \
 	teensy3/usb_serial.c \
 	teensy3/usb_desc.c \
-	main.c
+	main.c \
+	cmdport.c
 
 SRCS_CXX = \
 	teensy3/yield.cpp \
