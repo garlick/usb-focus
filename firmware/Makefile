@@ -31,7 +31,9 @@ SRCS_CXX = \
 	teensy3/HardwareSerial3.cpp \
 	teensy3/usb_inst.cpp \
 	AccelStepper/AccelStepper.cpp \
-	stepper.cpp
+	Bounce/Bounce.cpp \
+	stepper.cpp \
+	buttons.cpp
 
 # configurable options
 OPTIONS = -DF_CPU=48000000 -DLAYOUT_US_ENGLISH -DUSING_MAKEFILE
@@ -47,7 +49,7 @@ OPTIONS += -D__$(MCU)__ -DARDUINO=10600 -DTEENSYDUINO=121
 
 # CPPFLAGS = compiler options for C and C++
 CPPFLAGS = -Wall -g -Os -mcpu=cortex-m4 -mthumb -MMD $(OPTIONS)
-CPPFLAGS += -Iteensy3 -IAccelStepper
+CPPFLAGS += -Iteensy3 -IAccelStepper -IBounce
 
 # compiler options for C++ only
 CXXFLAGS = -std=gnu++0x -felide-constructors -fno-exceptions -fno-rtti
@@ -91,5 +93,6 @@ program: $(TARGET).hex
 clean:
 	rm -f *.o *.d
 	rm -f teensy3/*.o teensy3/*.d
-	rm -f FlexCAN/*.o FlexCAN/*.d
+	rm -f Bounce/*.o Bounce/*.d
+	rm -f AccelStepper/*.o AccelStepper/*.d
 	rm -f $(TARGET).elf $(TARGET).hex
