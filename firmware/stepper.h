@@ -7,3 +7,7 @@
 EXTERNC void stepper_setup (void);
 EXTERNC void stepper_finalize (void);
 EXTERNC void stepper_update (void);
+
+/*
+ * vi:tabstop=4 shiftwidth=4 expandtab
+ */

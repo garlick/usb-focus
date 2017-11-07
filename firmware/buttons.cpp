@@ -21,3 +21,7 @@ void buttons_update (void)
 void buttons_finalize (void)
 {
 }
+
+/*
+ * vi:tabstop=4 shiftwidth=4 expandtab
+ */
