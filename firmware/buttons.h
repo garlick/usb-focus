@@ -4,9 +4,9 @@
 #define EXTERNC
 #endif
 
-EXTERNC void stepper_setup (void);
-EXTERNC void stepper_finalize (void);
-EXTERNC void stepper_update (void);
+EXTERNC void buttons_setup (void);
+EXTERNC void buttons_finalize (void);
+EXTERNC void buttons_update (void);
 
 /*
  * vi:tabstop=4 shiftwidth=4 expandtab
