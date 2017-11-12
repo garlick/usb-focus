@@ -1,9 +1,10 @@
-#include "usb_dev.h"
-#include "usb_serial.h"
+#include "WProgram.h"
+#include "cmdport.h"
 
 void cmdport_setup (void)
 {
-    usb_init ();
+    Serial.begin(9600);
+    Serial.println("Hello USB Focus Controller");
 }
 
 void cmdport_update (void)

@@ -22,19 +22,21 @@ SRCS_C = \
 	teensy3/usb_mem.c \
 	teensy3/usb_serial.c \
 	teensy3/usb_desc.c \
-	main.c \
-	cmdport.c
+	main.c
 
 SRCS_CXX = \
 	teensy3/yield.cpp \
 	teensy3/HardwareSerial1.cpp \
 	teensy3/HardwareSerial2.cpp \
 	teensy3/HardwareSerial3.cpp \
+	teensy3/WString.cpp \
+	teensy3/Print.cpp \
 	teensy3/usb_inst.cpp \
 	AccelStepper/AccelStepper.cpp \
 	Bounce/Bounce.cpp \
 	stepper.cpp \
-	buttons.cpp
+	buttons.cpp \
+	cmdport.cpp
 
 # configurable options
 OPTIONS = -DF_CPU=48000000 -DLAYOUT_US_ENGLISH -DUSING_MAKEFILE
