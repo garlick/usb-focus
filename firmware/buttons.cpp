@@ -1,6 +1,7 @@
 #include <WProgram.h>
 #include <Bounce.h>
 #include "buttons.h"
+#include "stepper.h"
 
 const uint8_t in_button_pin = 14;
 const uint8_t out_button_pin = 15;
@@ -16,18 +17,21 @@ void buttons_setup (void)
 
 void buttons_update (void)
 {
+    /* IN: move focal plane toward telescope
+     */
     in.update ();
-    if (in.risingEdge ())
-        Serial.printf ("in button (rising)\n");
-    if (in.fallingEdge ())
-        Serial.printf ("in button (falling)\n");
+    if (in.risingEdge ())   // released
+        stepper_stop ();
+    if (in.fallingEdge ())  // pressed (active low)
+        stepper_move_in ();
 
+    /* OUT: move focal plane toward camera
+     */
     out.update ();
-    if (out.risingEdge ())
-        Serial.printf ("out button (rising)\n");
-    if (out.fallingEdge ())
-        Serial.printf ("out button (falling)\n");
-
+    if (out.risingEdge ())  // released
+        stepper_stop ();
+    if (out.fallingEdge ()) // pressed (active low)
+        stepper_move_out ();
 }
 
 void buttons_finalize (void)
